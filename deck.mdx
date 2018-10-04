@@ -176,7 +176,7 @@ import {FormattedMessage, defineMessages} from 'react-intl';
 
 import { Image } from 'mdx-deck'
 
-<Image src='./images/docz.png' size="contain" />
+<Image src={require("file-loader!./images/docz.png")} size="contain" />
 
 ---
 
@@ -193,7 +193,7 @@ import { Image } from 'mdx-deck'
 
 ---
 
-<Image src='./images/file-structure.png' size='contain' />
+<Image src={require("file-loader!./images/file-structure.png")} size='contain' />
 
 ---
 
