@@ -1,0 +1,21 @@
+{
+  "name": "uxp-react-presentation",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "mdx-deck deck.mdx"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@emotion/core": "^0.13.1",
+    "@emotion/styled": "^0.10.6",
+    "emotion": "^9.2.12",
+    "emotion-theming": "^9.2.9",
+    "mdx-deck": "^1.7.7",
+    "react": "^16.5.2",
+    "react-emotion": "^9.2.12",
+    "react-intl": "^2.7.0"
+  }
+}

@@ -1,0 +1,213 @@
+export { default as theme } from './theme'
+
+import { Invert } from 'mdx-deck/layouts'
+
+export default Invert
+
+# Overview of UI Development and Design Methodologies
+## Sean Clayton
+
+---
+
+# My Experience with React
+
+- 3 years at a company called Altour
+- 1 year at a company called GovSpend
+- Used in all side projects (where it makes sense) since learning it back in ~2014—2015
+
+---
+
+# Goals of a Resilient Project
+
+1. Enables the business
+1. Easy to learn from
+1. Easy to contribute to
+
+---
+
+# The Business Needs
+## of Marketplace
+
+- White-labelled with branding
+- Support multiple currencies
+- Support multiple languages
+
+---
+
+# White-label Branding
+## In React with Emotion.js
+
+---
+
+import { Split } from 'mdx-deck/layouts'
+
+export default Split
+
+```jsx
+const theme = {
+  colors: {
+    primary: '#0077FF',
+    secondary: '#FF7700'
+  }
+}
+
+<ThemeProvider theme={theme}>
+  <CoolApp />
+</ThemeProvider>
+```
+
+```jsx
+// CoolApp.js
+
+const Container = styled.main`
+  background-color: ${({ theme }) => theme.colors.primary};
+`
+
+const H1 = styled.h1`
+  color: ${({ theme }) => theme.colors.secondary};
+`
+
+// Inside our component render method
+
+<Container>
+  <H1>Howdy!</H1>
+</Container>
+```
+
+---
+
+# Handling Multiple Currencies
+## With React.js and React-Intl
+
+---
+
+```jsx
+import {addLocaleData} from 'react-intl';
+import en from 'react-intl/locale-data/en';
+import fr from 'react-intl/locale-data/fr';
+
+addLocaleData([...en, ...fr]);
+```
+
+---
+
+```jsx
+  <FormattedNumber style="currency" currency="USD" value={9.99} />
+  <FormattedNumber style="currency" currency="JPY" value={900} />
+  <FormattedNumber style="currency" currency="EUR" value={500.50} />
+```
+
+---
+
+import { FormattedNumber, IntlProvider, addLocaleData } from 'react-intl'
+
+<IntlProvider locale={navigator.language}>
+  <React.Fragment>
+    <FormattedNumber style="currency" currency="USD" value={9.99} />
+    <br />
+    <FormattedNumber style="currency" currency="JPY" value={9000} />
+    <br />
+    <FormattedNumber style="currency" currency="EUR" value={500.50} />
+  </React.Fragment>
+</IntlProvider>
+
+---
+
+# Multiple Languages
+## In React.js with React-Intl
+
+---
+
+```jsx
+
+import { FormattedMessage, defineMessages } from 'react-intl';
+
+const messages = defineMessages({
+    greeting: {
+        id: 'app.home.greeting',
+        description: 'Message to greet the user.',
+        defaultMessage: 'Hello, {name}!',
+    },
+});
+
+<FormattedMessage
+    id='app.greeting'
+    description='Greeting to welcome the user to the app'
+    defaultMessage='Hello, {name}!'
+    values={{
+        name: 'Eric'
+    }}
+/>
+```
+
+---
+import {FormattedMessage, defineMessages} from 'react-intl';
+
+<IntlProvider locale={navigator.language} messages={defineMessages({
+  greeting: {
+    id: 'app.greeting',
+    description: 'Message to greet the user.',
+    defaultMessage: 'Hello, {name}!',
+  },
+})}>
+  <FormattedMessage
+      id='app.greeting'
+      description='Greeting to welcome the user to the app'
+      defaultMessage='Hello, {name}!'
+      values={{
+          name: 'Eric'
+      }}
+  />
+</IntlProvider>
+
+---
+
+# Making Projects Easy to Learn From
+## In React.js with Docz
+
+---
+
+# Docz
+
+- Tool for generating React component documentation
+- Sandbox for working on components outside of the application
+
+---
+
+import { Image } from 'mdx-deck'
+
+<Image src='./images/docz.png' size="contain" />
+
+---
+
+# Making Projects Easy to Contribute To
+## In React.js with Bounded Contexts
+
+---
+
+# Bounded Contexts
+## In A Nutshell
+
+- Business-Centered
+- Give a structured "public" API used throughout the project
+
+---
+
+<Image src='./images/file-structure.png' size='contain' />
+
+---
+
+import { Appear } from 'mdx-deck'
+
+# In Conclusion
+
+We have...
+
+<ul>
+  <Appear>
+    <li>Made our folder structure easy to contribute to</li>
+    <li>Made our project easy to learn from</li>
+    <li>Given the business our foremost attention</li>
+  </Appear>
+</ul>
+
