@@ -101,7 +101,7 @@ addLocaleData([...en, ...fr]);
 
 import { FormattedNumber, IntlProvider, addLocaleData } from 'react-intl'
 
-<IntlProvider locale={navigator.language}>
+<IntlProvider locale="en-US">
   <React.Fragment>
     <FormattedNumber style="currency" currency="USD" value={9.99} />
     <br />
@@ -143,7 +143,7 @@ const messages = defineMessages({
 ---
 import {FormattedMessage, defineMessages} from 'react-intl';
 
-<IntlProvider locale={navigator.language} messages={defineMessages({
+<IntlProvider locale="en-US" messages={defineMessages({
   greeting: {
     id: 'app.greeting',
     description: 'Message to greet the user.',
